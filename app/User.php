@@ -26,4 +26,10 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+
+    public function ekskul()
+    {
+        return $this->belongsToMany(\App\Ekskul::class,'siswa_ekskul','siswa_id');
+    }
 }

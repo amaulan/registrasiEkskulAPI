@@ -14,3 +14,18 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+// Route::group(['prefix' => 'user'], function(){
+//     Route::get('/',                 '')
+// });
+
+Route::post('/auth', 'LoginController@auth');
+
+Route::group(['prefix' => 'ekskul'], function(){
+    Route::post('/',                 'EkskulController@index');
+    Route::post('/show',             'EkskulController@show');
+});
+
+Route::group(['prefix' => 'siswa-ekskul'], function(){
+    Route::post('/create',           'EkskulSiswaController@store');
+});
